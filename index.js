@@ -3,12 +3,13 @@ const { connection } = require("./db")
 const { userRouter } = require("./routes/user.route")
 const { postRouter } = require("./routes/post.route")
 const { auth } = require("./middleware/auth.middleware")
+const cors = require("cors")
 require("dotenv").config()
 
 const app = express()
 
 app.use(express.json())
-
+app.use(cors())
 app.get("/", (req, res) => {
     res.status(200).send("Basic API Endpoint")
 })
